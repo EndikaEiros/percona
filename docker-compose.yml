@@ -1,16 +1,6 @@
 version: "3.9"
 
 services:
-
-  web:
-    build: ./app
-    ports:
-      - 80:5000
-    volumes:
-      - .:/app
-    environment:
-      FLASK_DEBUG: 1
-    restart: on-failure
   
   db:
     image: redis:alpine
@@ -21,4 +11,13 @@ services:
       - 3306:3306
     volumes:
        - ./db:/docker-entrypoint-initdb.d/:ro
-   
+  
+  web:
+    build: ./app
+    ports:
+      - 80:5000
+    volumes:
+      - ./app:/app
+    environment:
+      FLASK_DEBUG: 1
+    restart: on-failure
