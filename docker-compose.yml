@@ -12,12 +12,10 @@ services:
     volumes:
        - ./db:/docker-entrypoint-initdb.d/:ro
   
-  web:
-    build: ./app
+  
+
+  adminer:
+    image: adminer
+    restart: always
     ports:
-      - 80:5000
-    volumes:
-      - ./app:/app
-    environment:
-      FLASK_DEBUG: 1
-    restart: on-failure
+      - 80:8080
