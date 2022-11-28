@@ -14,14 +14,8 @@
 </head>
 
 <body>
-
-    {% extends "base.html" %}
-    {% block nav %}
-      {{ super() }}
     <div class="bg-image" style="background-color:khaki;">
-      
-      
-
+    
       <div class="container py-4">
         <div class="row align-items-md-stretch">
 
@@ -29,7 +23,7 @@
             <div class="h-100 p-5 bg-light border rounded-3">
               <h2>Buscar Valores</h2>
               <p>Puedes buscar valores en cualquier base de datos cargada.</p>
-              <a  href="{{ url_for('buscar') }}"> <button class="btn btn-primary btn-lg" type="button">Buscar Valores</button></a>
+              
             </div>
           </div>
 
@@ -37,7 +31,7 @@
             <div class="h-100 p-5 text-white bg-dark rounded-3">
               <h2>Agregar Valores</h2>
               <p>Aprende videos con videos de geometria analítica</p>
-              <a  href="{{ url_for('agregar') }}"> <button class="btn btn-primary btn-lg" type="button">Agregar Valores</button></a>
+              
             </div>
           </div>
 
@@ -45,7 +39,7 @@
             <div class="h-100 p-5 text-white bg-dark rounded-3">
               <h2>Eliminar Valores</h2>
               <p>Aprende videos con videos de geometria analítica</p>
-              <a  href="{{ url_for('borrar') }}"> <button class="btn btn-primary btn-lg" type="button">Eliminar Valores</button></a>
+              
             </div>
           </div>
 
@@ -53,7 +47,7 @@
             <div class="h-100 p-5 bg-light border rounded-3">
               <h2>Comando Libre</h2>
               <p>Introduce un comando no implementado. No se asegura que funcione</p>
-              <a  href="{{ url_for('libre') }}"> <button class="btn btn-primary btn-lg" type="button">Comando libre</button></a>
+              
             </div>
           </div>
         </div>
