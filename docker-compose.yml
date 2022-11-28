@@ -12,10 +12,16 @@ services:
     volumes:
        - ./db:/docker-entrypoint-initdb.d/:ro
   
-  
-
   adminer:
     image: adminer
     restart: always
     ports:
-      - 80:8080
+      - 8080:8080
+  
+  web:
+    build: ./app
+    ports:
+      - 80:5000
+    volumes:
+      - ./app:/app
+    restart: on-failure
