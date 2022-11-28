@@ -1,0 +1,24 @@
+<html>
+
+<head>
+    {% block nav %}
+    <ul class="nav">
+        <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="{{ url_for('index') }}">Inicio</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{{ url_for('buscar') }}">Buscar elemento en tablas</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{{ url_for('agregar') }}">Agregar elemento a tablas</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{{ url_for('borrar') }}">Borrar elemento de tablas </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{{ url_for('libre') }}">Comando libre</a>
+        </li>
+    </ul>
+</head>
+
+</html>
