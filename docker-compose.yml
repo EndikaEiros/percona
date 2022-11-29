@@ -25,3 +25,7 @@ services:
     volumes:
       - ./app:/app
     restart: on-failure
+
+volumes:
+  app:
+  db:
