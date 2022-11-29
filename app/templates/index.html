@@ -14,10 +14,14 @@
 </head>
 
 <body>
+
+  {% extends "base.html" %}
+    {% block nav %}
+      {{ super() }}
     <div class="background-color" style="background-color:khaki;">
     
       <div class="container-m">
-
+        <div class="row align-items-md-stretch"></div>
         <table>
           <thead><tr><th>Bases de datos a las que se tiene acceso</th></tr></thead>
           <tbody>
@@ -26,51 +30,81 @@
             {% endfor %}
           </tbody>
         </table>        
-        
+      </div>
       </div>
 
 
       <div class="container py-4">
         <div class="row align-items-md-stretch">
 
-          <div class="col-md-6">
-            <div class="h-100 p-5 bg-light border rounded-3">
-              <h2>Buscar Valores</h2>
-              <p>Puedes buscar valores en cualquier base de datos cargada.</p>
+          <div class="p-5 mb-4 bg-light rounded-3">
+            <div class="container-fluid py-5">
+              <h2>Comando Libre</h2>
+              <p>Introduce un comando no implementado. No se asegura que funcione</p>
+              <form class="row g-3 needs-validation" action="/ejecutarcomando/" method='post'>
+
+                <div class="form-floating">
+                  <div class="select-editable">
+                    <select>
+                      <option value="" name="dataB" id="dataB" ></option>
+                      {% for bd in perconabd %}
+                        <option value="{{ bd }}">{{ bd }}</option>
+                      {% endfor %}
+                    </select>
+                    
+                  </div>
+                    <textarea class="form-control" placeholder="" name="comando" id="comando"
+                        style="height: 100px"></textarea>
+                    <label for="floatingTextarea2">Escribe tu comando aqui.</label>
+                </div><br>
+
+
+                <div class="col-12">
+                    <div class="col-12">
+                        <button class="btn btn-primary" type="submit">Ejecutar Comando</button>
+                    </div>
+
+                </div>
+              <p> 
+                El comando funcionara bajo la responsabilidad del usuario. 
+                No hagas select porque solo se va a ejecutar el comando, no va recuperar nada de informacion.
+                Para el select se recomienda la funcion "Ver Valores"
+              </p>
+            </div>
+          </div>
+          
+          <div class="p-5 mb-4 bg-light rounded-3">
+            <div class="container-fluid py-5">
+              <h2>Ver Valores</h2>
+              <p>Puedes visualizar todos los valores de una tabla cualquier base de datos cargada.</p>
               
             </div>
           </div>
 
-          <div class="col-md-6">
-            <div class="h-100 p-5 text-white bg-dark rounded-3">
+          <div class="p-5 mb-4 bg-light rounded-3">
+            <div class="container-fluid py-5">
               <h2>Agregar Valores</h2>
               <p>Aprende videos con videos de geometria analítica</p>
               
             </div>
           </div>
 
-          <div class="col-md-6">
-            <div class="h-100 p-5 text-white bg-dark rounded-3">
+          <div class="p-5 mb-4 bg-light rounded-3">
+            <div class="container-fluid py-5">
               <h2>Eliminar Valores</h2>
               <p>Aprende videos con videos de geometria analítica</p>
               
             </div>
           </div>
 
-          <div class="col-md-6">
-            <div class="h-100 p-5 bg-light border rounded-3">
-              <h2>Comando Libre</h2>
-              <p>Introduce un comando no implementado. No se asegura que funcione</p>
-              
-            </div>
-          </div>
+          
         </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
     crossorigin="anonymous"></script>
-
+    {% endblock %}
 </body>
 
 </html>
