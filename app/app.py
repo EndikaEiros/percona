@@ -13,8 +13,11 @@ def index():
 
 @app.route('/ejecutarcomando/', methods=['GET','POST'])
 def ejecutarcomando():
-    db = request.form['comando']
-    comando=request.form['dataB']
+    comando = request.form['comando']
+    db=request.form['dataB']
+
+    print('DB: {}'.format(str(db)))
+    print('Comando: {}'.format(str(comando)))
     
     if database.ejecutarComando(db,comando) == 0:
         lista_db = database.getDBList()
