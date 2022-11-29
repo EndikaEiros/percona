@@ -14,8 +14,8 @@ def getDBList():
     for r in result:
         tablas = getTableList(r)
         DBList.append((r,tablas))
-        os.system((r,tablas))
-
+        os.system(r)
+        os.system(tablas)
     _db.close()
 
     return DBList
