@@ -12,6 +12,7 @@ def getDBList():
     result = ["".join([char for char in r if char not in "(,)'"]) for r in result]
     DBList = []
     for r in result:
+        tablas=[]
         if r not in ['information_schema','mysql','performance_schema','sys']:
             tablas = getTableList(r)
         DBList.append((r,tablas))
