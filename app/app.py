@@ -27,7 +27,7 @@ def ejecutarcomando():
         else:
             lista_db=['Ha ocurrido un error']
         
-        return render_template('index.html',perconabd=lista_db)
+    return render_template('index.html',perconabd=lista_db)
     
 
     
