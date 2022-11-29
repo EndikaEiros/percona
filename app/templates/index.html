@@ -28,7 +28,7 @@
           <ul>
             {% for bd, tables in perconabd %}
             <li>{{ bd }}</li>
-              {% if len(tables)>0 %}
+              {% if tables|length > 0 %}
                 {% for table in tables %}
                   <ul><li>{{ table }}</li></ul>
                 {% endfor %} 
