@@ -18,20 +18,27 @@
   {% extends "base.html" %}
     {% block nav %}
       {{ super() }}
-    <div class="background-color" style="background-color:khaki;">
+  
     
-      <div class="container-m">
-        <div class="row align-items-md-stretch"></div>
-        <table>
-          <thead><tr><th>Bases de datos a las que se tiene acceso</th></tr></thead>
-          <tbody>
-            {% for bd in perconabd %}
-              <tr><td>{{ bd }}</td></tr>
+    <div class="container py-4" style="background-color:khaki;">
+        <div class="row align-items-md-stretch">
+
+            <h2>Bases de datos a las que se tiene acceso</h2>
+          
+          <ul>
+            {% for bd, tables in perconabd %}
+            <li>{{ bd }}</li>
+              {% if len(tables)>0 %}
+                {% for table in tables %}
+                  <ul><li>{{ table }}</li></ul>
+                {% endfor %} 
+              {% endif %}
             {% endfor %}
-          </tbody>
-        </table>        
-      </div>
-      </div>
+          </ul>
+          
+
+        </div>
+    </div>
 
 
       <div class="container py-4">

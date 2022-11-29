@@ -1,4 +1,6 @@
 import mysql.connector as percona
+import os
+
 
 def getDBList():
     _db = percona.connect(host = 'db', user = 'root', password = 'root', port = 3306)
@@ -7,15 +9,16 @@ def getDBList():
     _c.execute('show databases;')
     result = [x for x in _c.fetchall()]
 
-    for i in range(len(result)):
-        for char in str(result[i]):
-            if char in "(,)'":
-                result[i]= str(result[i]).replace(char,'')
-                print(result[i])
+    result = ["".join([char for char in r if char not in "(,)'"]) for r in result]
+    DBList = []
+    for r in result:
+        tablas = getTableList(r)
+        DBList.append((r,tablas))
+        os.system((r,tablas))
 
     _db.close()
 
-    return result
+    return DBList
     
    
 def getTableList(DB):
@@ -26,12 +29,8 @@ def getTableList(DB):
 
     result = [x for x in _c.fetchall()]
 
-    for i in range(len(result)):
-        for char in str(result[i]):
-            if char in "(,)'":
-                result[i]= str(result[i]).replace(char,'')
-                print(result[i])
-
+    result = ["".join([char for char in r if char not in "(,)'"]) for r in result]
+    #os.system(result)
     _db.close()
 
     return result
