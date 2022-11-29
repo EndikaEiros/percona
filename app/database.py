@@ -14,8 +14,8 @@ def getDBList():
     for r in result:
         tablas = getTableList(r)
         DBList.append((r,tablas))
-        os.system(r)
-        os.system(tablas)
+        print(r)
+        print(tablas)
     _db.close()
 
     return DBList
@@ -30,7 +30,7 @@ def getTableList(DB):
     result = [x for x in _c.fetchall()]
 
     result = ["".join([char for char in r if char not in "(,)'"]) for r in result]
-    #os.system(result)
+    print(result)
     _db.close()
 
     return result
