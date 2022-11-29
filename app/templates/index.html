@@ -54,7 +54,7 @@
                   <div class="select-editable">
                     <select>
                       <option value="" name="dataB" id="dataB" ></option>
-                      {% for bd in perconabd %}
+                      {% for bd, tables in perconabd %}
                         <option value="{{ bd }}">{{ bd }}</option>
                       {% endfor %}
                     </select>

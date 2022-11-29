@@ -12,7 +12,8 @@ def getDBList():
     result = ["".join([char for char in r if char not in "(,)'"]) for r in result]
     DBList = []
     for r in result:
-        tablas = getTableList(r)
+        if r not in ['information_schema','mysql','performance_schema','sys']:
+            tablas = getTableList(r)
         DBList.append((r,tablas))
         print(r)
         print(tablas)
@@ -30,7 +31,6 @@ def getTableList(DB):
     result = [x for x in _c.fetchall()]
 
     result = ["".join([char for char in r if char not in "(,)'"]) for r in result]
-    print(result)
     _db.close()
 
     return result
