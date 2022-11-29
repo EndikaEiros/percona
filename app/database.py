@@ -23,8 +23,9 @@ def getTableList(DB):
 
     for i in range(len(result)):
         for char in result[i]:
-            if char in "(',)":
+            if char in "(,)'":
                 result[i]= result[i].replace(char,'')
+                print(result[i])
 
     _db.close()
 
