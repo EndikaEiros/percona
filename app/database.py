@@ -6,10 +6,15 @@ def getDBList():
 
     _c.execute('show databases;')
     result = [x for x in _c.fetchall()]
-    
+
+    for i in range(len(result)):
+        for char in str(result[i]):
+            if char in "(,)'":
+                result[i]= str(result[i]).replace(char,'')
+                print(result[i])
+
     _db.close()
 
-    
     return result
     
    
@@ -22,9 +27,9 @@ def getTableList(DB):
     result = [x for x in _c.fetchall()]
 
     for i in range(len(result)):
-        for char in result[i]:
+        for char in str(result[i]):
             if char in "(,)'":
-                result[i]= result[i].replace(char,'')
+                result[i]= str(result[i]).replace(char,'')
                 print(result[i])
 
     _db.close()
