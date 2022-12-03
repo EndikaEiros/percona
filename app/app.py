@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request, redirect, url_for
 import database
+import requests
 import flask
 
 app = Flask(__name__)
@@ -13,7 +14,7 @@ def index():
 
     if request.method == 'POST':
         if request.form['submit_button'] == 'Ejecutar Comando':
-            comando = request.form['textocomando']
+            comando = request.form['comando']
             db=request.form['dataB']
             print(comando)
             print(db)

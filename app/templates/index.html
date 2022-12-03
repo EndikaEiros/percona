@@ -58,7 +58,8 @@
             <div class="container-fluid py-5">
               <h2>Comando Libre</h2>
               <p>Introduce un comando no implementado. No se asegura que funcione</p>
-              <form class="row g-3 needs-validation" id="formcomando" action="/" method="post" enctype="multipart/form-data">
+
+              <form class="row g-3 needs-validation" action="/" method="post">
                 <div class="form-floating">
                   <div class="select-editable">
                     <select>
@@ -68,14 +69,13 @@
                       {% endfor %}
                     </select>
                   </div>
-                    <textarea class="form-control" placeholder="" name="comando" id="textocomando"
-                        style="height: 100px"></textarea>
+                    <textarea class="form-control" placeholder="" name="comando"  style="height: 100px"></textarea>
                 </div><br>
-                <p> Escribe tu comando en el ciuadro de texto.
-                  Ejemplo:
-                  Tabla test 
-                  Comando INSERT INTO test_table (name, color) VALUES ('noob', 'purpple');
-                </p>
+                <p> Escribe tu comando en el ciuadro de texto.</p>
+                <p> Ejemplo:</p>
+                <p>Tabla test </p>
+                <p>Comando INSERT INTO test_table (name, color) VALUES ('noob', 'purpple');</p>
+                
                 <div class="col-12">
                     <div class="col-12">
                         <input class="btn btn-primary" type="submit" name="submit_button" value="Ejecutar Comando">
