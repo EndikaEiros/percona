@@ -13,8 +13,10 @@ def index():
 
     if request.method == 'POST':
         if request.form['submit_button'] == 'Ejecutar Comando':
-            comando = request.form['comando']
+            comando = request.form['textocomando']
             db=request.form['dataB']
+            print(comando)
+            print(db)
             database.ejecutarComando(db,comando)
 
             render_template('index.html',perconabd=lista_db)

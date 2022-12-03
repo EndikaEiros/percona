@@ -1,5 +1,4 @@
 import mysql.connector as percona
-import os
 
 import random
 import string
@@ -83,7 +82,7 @@ def flaskTest():
     
     for i in range(100):
         nombre = get_random_string(5)
-        _c.execute("INSERT INTO test_flask (id, nombre) VALUES('{}', '{}');".format(i, nombre))
+        _c.execute("INSERT INTO test_flask (id, nombre) VALUES ('{}', '{}');".format(i, nombre))
 
     _db.close()
     return 0

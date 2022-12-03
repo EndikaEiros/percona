@@ -15,6 +15,16 @@
 #             print(result[i])
 
 # _db.close()
+import random
+import string
 
 
+def get_random_string(length):
+    
+    result_str = ''.join(random.choice(string.ascii_letters) for i in range(length))
+    return result_str
 
+
+for i in range(100):
+    nombre = get_random_string(5)
+    print("INSERT INTO test_flask (id, nombre) VALUES ('{}', '{}');".format(i, nombre))
