@@ -7,8 +7,4 @@ CREATE TABLE test_table (
   color VARCHAR(10)
 );
 
-INSERT INTO test_table
-  (name, color)
-VALUES
-  ('dev', 'blue'),
-  ('pro', 'yellow');
+INSERT INTO test_table (name, color) VALUES ('dev', 'blue'),('pro', 'yellow');
