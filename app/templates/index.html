@@ -22,10 +22,8 @@
     
     <div class="container py-4" style="background-color:khaki;">
         <div class="row align-items-md-stretch">
-
-            <h2>Bases de datos a las que se tiene acceso</h2>
-          
-          <ul>
+          <h2>Bases de datos a las que se tiene acceso</h2>
+          <p> <ul>
             {% for bd, tables in perconabd %}
             <li>{{ bd }}</li>
               {% if tables|length > 0 %}
@@ -34,9 +32,7 @@
                 {% endfor %} 
               {% endif %}
             {% endfor %}
-          </ul>
-          
-
+          </ul></p>
         </div>
     </div>
 
@@ -46,10 +42,23 @@
 
           <div class="p-5 mb-4 bg-light rounded-3">
             <div class="container-fluid py-5">
+              <h2> Prueba codigo de la aplicacion</h2>
+              <p>Crea una base de datos con valores a traves de código python. La nueva base de datos tiene el nombre flask_bd y una tabla llamada test_flask.
+                Si todo ha funcionado correctamemte la tabla tendra 100 valores. </p>
+              <form class="row g-3 needs-validation" action="/" method='post'>           
+                  <div class="col-12">
+                      <input class="btn btn-primary" type="submit" name="submit_button" value="Prueba/Test">
+                      
+                  </div>
+              </form>
+            </div>
+          </div>
+
+          <div class="p-5 mb-4 bg-light rounded-3">
+            <div class="container-fluid py-5">
               <h2>Comando Libre</h2>
               <p>Introduce un comando no implementado. No se asegura que funcione</p>
-              <form class="row g-3 needs-validation" action="/ejecutarcomando/" method='post'>
-
+              <form class="row g-3 needs-validation" action="/" method='post'>
                 <div class="form-floating">
                   <div class="select-editable">
                     <select>
@@ -58,19 +67,17 @@
                         <option value="{{ bd }}">{{ bd }}</option>
                       {% endfor %}
                     </select>
-                    
                   </div>
                     <textarea class="form-control" placeholder="" name="comando" id="comando"
                         style="height: 100px"></textarea>
                 </div><br>
                 <p> Escribe tu comando en eñ ciuadro de texto.</p>
-
                 <div class="col-12">
                     <div class="col-12">
-                        <button class="btn btn-primary" type="submit">Ejecutar Comando</button>
+                        <input class="btn btn-primary" type="submit" name="submit_button" value="Ejecutar Comando">
                     </div>
-
                 </div>
+              </form>
               <p> 
                 El comando funcionara bajo la responsabilidad del usuario. 
                 No hagas select porque solo se va a ejecutar el comando, no va recuperar nada de informacion.
@@ -90,7 +97,9 @@
           <div class="p-5 mb-4 bg-light rounded-3">
             <div class="container-fluid py-5">
               <h2>Agregar Valores</h2>
-              <p>Aprende videos con videos de geometria analítica</p>
+              <p>Agregar valores a la base de datos
+                Esta funcionalidad aun no ha sido implemetada. Disculpa las molestias
+              </p>
               
             </div>
           </div>
@@ -98,8 +107,9 @@
           <div class="p-5 mb-4 bg-light rounded-3">
             <div class="container-fluid py-5">
               <h2>Eliminar Valores</h2>
-              <p>Aprende videos con videos de geometria analítica</p>
-              
+              <p>Elimina valores de la base de datos seleccionada.
+                Esta funcionalidad aun no ha sido implemetada. Disculpa las molestias
+              </p>
             </div>
           </div>
 

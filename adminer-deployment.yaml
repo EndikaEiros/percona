@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deployment-adminer
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      contenedor: adminer
+  
+  template:
+    metadata:
+      labels:
+        contenedor: adminer
+    spec:
+      containers:
+        - name: adminer
+          image: adminer
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8080

@@ -1,6 +1,9 @@
 import mysql.connector as percona
 import os
 
+import random
+import string
+
 
 def getDBList():
     _db = percona.connect(host = 'db', user = 'root', password = 'root', port = 3306)
@@ -59,6 +62,28 @@ def ejecutarComando(DB,comando):
     _c.execute("'{}';".format(str(comando)))
     
     _db.close()
+    return 0
 
+def get_random_string(length):
     
+    result_str = ''.join(random.choice(string.ascii_letters) for i in range(length))
+    return result_str
+
+def flaskTest():
+    _db = percona.connect(host = 'db', user = 'root', password = 'root', port = 3306)
+    _c = _db.cursor()
+
+    _c.execute("DROP DATABASE IF EXISTS flask_bd;")
+    _c.execute("CREATE DATABASE IF NOT EXISTS flask_bd;")
+    _db.close()
+
+    _db = percona.connect(host = 'db', user = 'root', password = 'root', port = 3306, database='flask_bd')
+    _c = _db.cursor()
+    _c.execute("CREATE TABLE test_flask (id INT, nombre VARCHAR(20));")
+    
+    for i in range(100):
+        nombre = get_random_string(5)
+        _c.execute("INSERT INTO test_flask (id, color) VALUES('{}', '{}');".format(i, nombre))
+
+    _db.close()
     return 0

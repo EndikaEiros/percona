@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deployment-percona
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      db: percona
+  
+  template:
+    metadata:
+      labels:
+        db: percona
+    spec:
+      volumes:
+        - name: percona-storage
+          persistentVolumeClaim:
+            claimName: claim-pv
+
+      containers:
+        - name: percona
+          image: percona
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 3306
+          mountPath: /var/lib/mysql/data

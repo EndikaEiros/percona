@@ -4,6 +4,7 @@ services:
   
   db:
     image: percona
+    container_name: percona
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: root
@@ -14,12 +15,14 @@ services:
   
   adminer:
     image: adminer
+    container_name: adminer
     restart: always
     ports:
       - 8080:8080
   
   web:
     build: ./app
+    container_name: flask
     ports:
       - 80:5000
     volumes:
