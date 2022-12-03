@@ -59,7 +59,7 @@ def ejecutarComando(DB,comando):
     print(DB)
     print(comando)
     _c.execute("'{}';".format(str(comando)))
-    
+    _db.commit()
     _db.close()
     return 0
 
@@ -72,17 +72,18 @@ def flaskTest():
     _db = percona.connect(host = 'db', user = 'root', password = 'root', port = 3306)
     _c = _db.cursor()
 
-    _c.execute("DROP DATABASE IF EXISTS flask_bd;")
-    _c.execute("CREATE DATABASE IF NOT EXISTS flask_bd;")
+    _c.execute("DROP DATABASE IF EXISTS flask_db;")
+    _c.execute("CREATE DATABASE IF NOT EXISTS flask_db;")
     _db.close()
 
-    _db = percona.connect(host = 'db', user = 'root', password = 'root', port = 3306, database='flask_bd')
+    _db = percona.connect(host = 'db', user = 'root', password = 'root', port = 3306, database='flask_db')
     _c = _db.cursor()
     _c.execute("CREATE TABLE test_flask (id INT, nombre VARCHAR(20));")
     
     for i in range(100):
         nombre = get_random_string(5)
-        _c.execute("INSERT INTO test_flask (id, nombre) VALUES ('{}', '{}');".format(i, nombre))
-
+        _c.execute("INSERT INTO test_flask (id, nombre) VALUES ({},'{}');".format(i, nombre))
+    
+    _db.commit()
     _db.close()
     return 0

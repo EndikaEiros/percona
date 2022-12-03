@@ -27,4 +27,4 @@ def get_random_string(length):
 
 for i in range(100):
     nombre = get_random_string(5)
-    print("INSERT INTO test_flask (id, nombre) VALUES ('{}', '{}');".format(i, nombre))
+    print("INSERT INTO test_flask (id, nombre) VALUES ({},'{}');".format(i, nombre))
