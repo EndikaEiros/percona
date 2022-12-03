@@ -57,29 +57,28 @@
           <div class="p-5 mb-4 bg-light rounded-3">
             <div class="container-fluid py-5">
               <h2>Comando Libre</h2>
-              <p>Introduce un comando no implementado. No se asegura que funcione</p>
+              <p>Introduce un comando no implementado. No se asegura que funcione. </p>
 
-              <form class="row g-3 needs-validation" action="/" method="post">
+              <form class="row g-3 needs-validation" action="{{ url_for('/') }}" method="post">
                 <div class="form-floating">
                   <div class="select-editable">
                     <select>
-                      <option value="" name="dataB" id="dataB" ></option>
+                      <option value="" name="dataB" ></option>
                       {% for bd, tables in perconabd %}
                         <option value="{{ bd }}">{{ bd }}</option>
                       {% endfor %}
                     </select>
                   </div>
-                    <textarea class="form-control" placeholder="" name="comando"  style="height: 100px"></textarea>
+                    <textarea class="form-control" name="comando" style="height: 100px"></textarea>
                 </div><br>
-                <p> Escribe tu comando en el ciuadro de texto.</p>
-                <p> Ejemplo:</p>
-                <p>Tabla test </p>
-                <p>Comando INSERT INTO test_table (name, color) VALUES ('noob', 'purpple');</p>
+                <p> Escribe tu comando en el cuadro de texto.<br>
+                    Ejemplo:<br>
+                    Tabla test <br>
+                    Comando INSERT INTO test_table (name, color) VALUES ('noob', 'purpple');
+                </p>
                 
                 <div class="col-12">
-                    <div class="col-12">
-                        <input class="btn btn-primary" type="submit" name="submit_button" value="Ejecutar Comando">
-                    </div>
+                    <input class="btn btn-primary" type="submit" name="submit_button" value="Ejecutar Comando">
                 </div>
               </form>
               <p> 
