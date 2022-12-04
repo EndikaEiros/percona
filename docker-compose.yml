@@ -4,31 +4,50 @@ services:
   
   db:
     image: percona
+    # se va a utilizar la imagen de npmbre "percona" de docker hub
     container_name: percona
+    # renombramos el contenedor a percona
     restart: always
+    # La politica de reinicio del contenedor
     environment:
       MYSQL_ROOT_PASSWORD: root
+      # Contraseña del usuario root
     ports:
       - 3306:3306
+      # mapeo de los puertos del contenedor con la maquina
     volumes:
        - ./db:/docker-entrypoint-initdb.d/:ro
+       # ruta que carga los fichers .sql en la base de datos.
+       # mapeo de los volumenes en el contenedor, en este caso la capeta local /db va a ser la carpeta /docker-entrypoint-initdb.d/ dentro del contenedor
   
   adminer:
     image: adminer
+    # imagen que se va a utilizar, esta almacenada en dockerhub
     container_name: adminer
+    # renombre del container a adminer
     restart: always
+    # politica de reincio del contenedor
     ports:
       - 8080:8080
+    # mapeo de los puertos del contenedor con la maquina
   
   web:
     build: ./app
+    # ruta de la imagen que se va a configurar (el fichero Dockerfile)
     container_name: flask
+    # renombre del container a flask
     ports:
       - 80:5000
+    depends_on:
+      - "db"
+    # dependendias del contenedor, se ejecutara cuando el contenedor de la base de datops percona este listo
     volumes:
       - ./app:/app
-    restart: always
+    # mapeo de los volumenes en el contenedor, en este caso la capeta local /app va a ser la carpeta /app dentro del contenedor
+    restart: on-failure
+    # politica de reincio del contenedor
 
 volumes:
   app:
   db:
+  # volumenes que se utilizan en los contenedores 
