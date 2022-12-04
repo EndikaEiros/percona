@@ -46,7 +46,7 @@ services:
     volumes:
       - ./app:/app
     # mapeo de los volumenes en el contenedor, en este caso la capeta local /app va a ser la carpeta /app dentro del contenedor
-    restart: always
+    restart: on-failure
     # politica de reincio del contenedor
 
 volumes:
