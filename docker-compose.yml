@@ -33,6 +33,8 @@ services:
   
   web:
     build: ./app
+    stdin_open: true # docker run -i
+    tty: true        # docker run -t
     # ruta de la imagen que se va a configurar (el fichero Dockerfile)
     container_name: flask
     # renombre del container a flask
