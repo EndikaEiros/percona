@@ -31,12 +31,8 @@ def index():
     elif request.method == 'GET':
         return render_template('index.html',perconabd=lista_db)
     else:
-        lista_db.append('VACIO algo ta mal')
         return render_template('index.html',perconabd=lista_db)
     
-
-    if len(lista_db)==0:
-        lista_db.append('VACIO algo ta mal')
     return render_template('index.html',perconabd=lista_db)
     
 
