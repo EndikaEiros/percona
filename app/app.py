@@ -16,7 +16,7 @@ def index():
         if request.form['submit_button'] == 'Ejecutar Comando':
             comando = request.form['comando']
             print('El comando es: '+ comando)
-            db, tabla = request.form['database']
+            db = request.form['database']
             # db=request.form['dataB']
             print('La base de datos es: ' + str(db))
 

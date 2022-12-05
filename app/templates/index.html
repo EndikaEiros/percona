@@ -59,19 +59,22 @@
           <div class="p-5 mb-4 bg-light rounded-3">
             <div class="container-fluid py-5">
               <h2>Comando Libre</h2>
-              <p>Introduce un comando no implementado. No se asegura que funcione. </p>
+              <p>Introduce el nombre de la base de tatos en el primer cuadro, y el comando en el segundo.<br>
+                Por alguna razon que no comprendo no puedo obtener el valore de la base de tados del desplegable.
+              </p>
 
               <form class="row g-3 needs-validation" action="/" method="POST">
                 <div class="form-floating">
                   <div class="select-editable">
                     <select>
-                      <option value="" name="database" ></option>
+                      <option value="" name="database_dropdown" ></option>
                       {% for bd, tables in perconabd %}
                         <option value="{{ bd }}">{{ bd }}</option>
                       {% endfor %}
                     </select>
                   </div>
-                    <textarea class="form-control" name="comando" style="height: 100px"></textarea>
+                    <textarea class="form-control" name="database" style="height: 70px"></textarea><br>
+                    <textarea class="form-control" name="comando" style="height: 70px"></textarea>
                 </div><br>
                 <p> Escribe tu comando en el cuadro de texto.<br>
                     Ejemplo:<br><br>
