@@ -15,5 +15,6 @@ RUN pip install -r requirements.txt
 # Se intalan los paquetes necesarios de python para que la aplicacion funcione correctamente.
 EXPOSE 5000
 # Se abre el purto 5000 en el contenedor (puerto por defecto de flask)
-CMD flask run
+
 # se actualiza el comando de arranque del contenedor para que ejecute la pagina web flask
+CMD flask run
