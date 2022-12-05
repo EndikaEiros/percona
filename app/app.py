@@ -18,9 +18,9 @@ def index():
             print('El comando es: '+ comando)
             db = request.form.get('dataB')
             # db=request.form['dataB']
-            print('La base de datos es: ' + db)
+            print('La base de datos es: ' + str(db))
 
-            database.ejecutarComando(db,comando)
+            database.ejecutarComando(str(db),comando)
 
             render_template('index.html',perconabd=lista_db)
 
