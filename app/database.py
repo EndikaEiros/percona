@@ -58,7 +58,7 @@ def ejecutarComando(DB,comando):
     
     print(DB)
     print(comando)
-    _c.execute("'{}';".format(str(comando)))
+    _c.execute("{};".format(str(comando)))
     _db.commit()
     _db.close()
     return 0
