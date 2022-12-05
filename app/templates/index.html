@@ -22,7 +22,8 @@
     
     <div class="container py-4" style="background-color:khaki;">
         <div class="row align-items-md-stretch">
-          <h2>Bases de datos a las que se tiene acceso</h2>
+          <div class="container-fluid py-5">
+            <h2>Bases de datos a las que se tiene acceso</h2>
           <p> <ul>
             {% for bd, tables in perconabd %}
             <li>{{ bd }}</li>
@@ -33,6 +34,7 @@
               {% endif %}
             {% endfor %}
           </ul></p>
+          </div>
         </div>
     </div>
 
