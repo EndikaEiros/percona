@@ -23,6 +23,28 @@ spec:
       - name: percona
         image: percona
         imagePullPolicy: Always
+        env:
+        - name: MYSQL_ROOT_PASSWORD
+          value: "root"
         ports:
-          - containerPort: 3306
-        mountPath: /var/lib/mysql/data
+        - containerPort: 3306
+          name: db-container
+        volumeMounts:
+          - name: mysql-persistent-storage
+            mountPath: /var/lib/mysql
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: percona
+  labels:
+    app: db
+spec:
+  ports:
+  - port: 3306
+    protocol: TCP
+    name: mysql
+  selector:
+    app: db
+  type: LoadBalancer

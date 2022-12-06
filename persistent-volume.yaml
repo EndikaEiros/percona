@@ -5,10 +5,23 @@ metadata:
   labels:
     type: local
 spec:
+  storageClassName: manual
   capacity:
     storage: 2Gi
-  storageClassName: standard
   accessModes:
     - ReadWriteOnce
+  persistentVolumeReclaimPolicy: Retain
   hostPath:
-    path: "/bd"
+    path: "/mnt/data"
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: percona-pv-claim
+spec:
+  storageClassName: manual
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 2Gi
