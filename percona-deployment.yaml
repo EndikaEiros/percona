@@ -17,7 +17,7 @@ spec:
       volumes:
       - name: percona-storage
         persistentVolumeClaim:
-          claimName: claim-pv
+          claimName: percona-pv-claim
 
       containers:
       - name: percona
