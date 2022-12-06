@@ -2,12 +2,13 @@ apiVersion: v1
 kind: PersistentVolume
 metadata:
   name: mi-pv
+  labels:
+    type: local
 spec:
+  storageClassName: manual
   capacity:
     storage: 3Gi
-  volumeMode: Filesystem
   accessModes:
-    - ReadWriteOnce
+    - ReadWriteMany
   hostPath:
-    path: "/home/eiros/percona/bd"
-  persistentVolumeReclaimPolicy: Recycle
+    path: "/opt/volume/nginx"
