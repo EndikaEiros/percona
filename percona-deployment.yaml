@@ -15,14 +15,14 @@ spec:
         db: percona
     spec:
       volumes:
-        - name: percona-storage
-          persistentVolumeClaim:
-            claimName: claim-pv
+      - name: percona-storage
+        persistentVolumeClaim:
+          claimName: claim-pv
 
       containers:
-        - name: percona
-          image: percona
-          imagePullPolicy: Always
-          ports:
-            - containerPort: 3306
-          mountPath: /var/lib/mysql/data
+      - name: percona
+        image: percona
+        imagePullPolicy: Always
+        ports:
+          - containerPort: 3306
+        mountPath: /var/lib/mysql/data

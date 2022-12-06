@@ -15,8 +15,8 @@ spec:
         contenedor: adminer
     spec:
       containers:
-        - name: adminer
-          image: adminer
-          imagePullPolicy: Always
-          ports:
-            - containerPort: 8080
+      - name: adminer
+        image: adminer
+        imagePullPolicy: Always
+        ports:
+          - containerPort: 8080

@@ -15,11 +15,11 @@ spec:
         app: flask
     spec:
       containers:
-        - name: flask
-          image: python:3.11-alpine
-          imagePullPolicy: Always
-          ports:
-            - containerPort: 5000
+      - name: flask
+        image: python:3.11-alpine
+        imagePullPolicy: Always
+        ports:
+          - containerPort: 5000
 ---
 apiVersion: v1
 kind: Service
